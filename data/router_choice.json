@@ -1,0 +1,4 @@
+{
+    "router": "LogReg",
+    "threshold": 0.69
+}
