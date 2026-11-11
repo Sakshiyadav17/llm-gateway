@@ -98,6 +98,8 @@ for name, p in oof.items():
 plt.scatter([0, 100], [small_acc * 100, big_acc * 100], c="black", marker="s",
             label="Always small / big")
 plt.plot([0, 100], [small_acc * 100, big_acc * 100], "k--", alpha=0.4, label="Random routing")
+plt.plot([0, 100], [small_acc * 100, big_acc * 100], "k--", alpha=0.4, label="Random routing")
+plt.scatter([60.9], [80.5], marker="*", s=200, c="red", zorder=6, label="Chosen (LogReg, 3 pts)")
 plt.xlabel("% of queries sent to big model"); plt.ylabel("Accuracy (%)")
 plt.title("Cross-validated cost vs accuracy (train+val, 5-fold)")
 plt.legend(); plt.grid(alpha=0.3)

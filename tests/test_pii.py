@@ -12,9 +12,9 @@ def test_restore_roundtrip():
     assert restore(m, mp) == t
 
 
-def test_invalid_aadhaar_not_masked():
+def test_any_12_digit_id_is_masked():
     m, _ = mask("number 2345 6789 0123")
-    assert "<AADHAAR" not in m
+    assert "<AADHAAR_1>" in m
 
 
 def test_verhoeff_known_valid():

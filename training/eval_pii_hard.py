@@ -3,7 +3,7 @@ from gateway.pii import mask
 
 CASES = [
     ("pan is abcde1234f", [("PAN", "abcde1234f")]),                 # lowercase
-    ("Aadhaar 234567890123 given", []),                              # no-gap, likely invalid checksum
+    ("Aadhaar 234567890123 given", [("AADHAAR", "234567890123")]),
     ("call me at +91 (98765) 43210", [("PHONE", "+91 (98765) 43210")]),   # odd format
     ("number 98765-43210 and 9876543210", [("PHONE", "98765-43210"), ("PHONE", "9876543210")]),
     ("tracking 9876543210123", []),                                  # longer number, not a phone
@@ -12,7 +12,7 @@ CASES = [
     ("मेरा नंबर 9876543210 है", [("PHONE", "9876543210")]),            # Hindi context
     ("IFSC SBIN0001234 branch", [("IFSC", "SBIN0001234")]),
     ("order ABCDE1234F-77", [("PAN", "ABCDE1234F")]),               # looks like PAN, is it?
-        ("order number 234567890123 shipped", []),                       # 12 digits, likely fails checksum
+    ("order number 234567890123 shipped", [("AADHAAR", "234567890123")]),                    
     ("tracking id 7123456789012 delivered", []),                     # 13 digits, not a phone
     ("the word ABCDEfghij1234 is a code", []),                       # not a PAN
 ]

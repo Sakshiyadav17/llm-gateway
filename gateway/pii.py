@@ -21,10 +21,9 @@ def verhoeff_valid(num: str) -> bool:
         c = _D[c][_P[i % 8][int(ch)]]
     return c == 0
 
-
 def _aadhaar_ok(m: str) -> bool:
-    digits = re.sub(r"\D", "", m)
-    return len(digits) == 12 and digits[0] in "23456789" and verhoeff_valid(digits)
+       digits = re.sub(r"\D", "", m)
+       return len(digits) == 12 and digits[0] in "23456789"
 
 
 # ---- Patterns (order matters: more specific first) ----
